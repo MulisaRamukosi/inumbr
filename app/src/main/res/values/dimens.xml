@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mp_8dp">8dp</dimen>
+    <dimen name="mp_16dp">16dp</dimen>
+    <dimen name="txt_medium">30sp</dimen>
+</resources>
