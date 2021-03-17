@@ -32,8 +32,8 @@
 
         <EditText
             android:id="@+id/edt_comb_in_1"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/bg_circle"
             android:gravity="center"
             android:textSize="30sp"
@@ -50,8 +50,8 @@
 
         <EditText
             android:id="@+id/edt_comb_in_2"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/bg_circle"
             android:hint="@string/h_2"
             android:gravity="center"
@@ -68,8 +68,8 @@
 
         <EditText
             android:id="@+id/edt_comb_in_3"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/bg_circle"
             android:hint="@string/h_3"
             android:gravity="center"
@@ -86,8 +86,8 @@
 
         <EditText
             android:id="@+id/edt_comb_in_4"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/bg_circle"
             android:hint="@string/h_4"
             android:gravity="center"
@@ -104,8 +104,8 @@
 
         <EditText
             android:id="@+id/edt_comb_in_5"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/bg_circle"
             android:hint="@string/h_5"
             android:gravity="center"
@@ -122,8 +122,8 @@
 
         <EditText
             android:id="@+id/edt_comb_in_6"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/bg_circle"
             android:hint="@string/h_6"
             android:gravity="center"
