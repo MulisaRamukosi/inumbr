@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             String sMaxLengthForComb = mBinding.edtCombLength.getText().toString();
 
             if (selectedNumbers.isEmpty()){
-                Toast.makeText(this, "Input numbers", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Insert numbers", Toast.LENGTH_SHORT).show();
             }
             else if (sMaxLengthForComb.isEmpty()){
                 mBinding.edtCombLength.setError("Enter length");
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     if (containsDuplicates){
-                        Toast.makeText(this, "Error, selected numbers contain duplicates!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "selected numbers contain duplicates!", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         generateCombinations(selectedNumbers, maxLength);
