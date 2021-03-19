@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     if (containsDuplicates){
-                        Toast.makeText(this, "Error, selected numbers contain duplicates", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Error, selected numbers contain duplicates!", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         generateCombinations(selectedNumbers, maxLength);
