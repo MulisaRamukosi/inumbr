@@ -1,4 +1,4 @@
-package com.puzzle.industries.inumbr.model;
+package com.puzzle.industries.inumbr.dataModels;
 
 import java.util.ArrayList;
 import java.util.List;
