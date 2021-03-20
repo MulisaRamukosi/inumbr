@@ -1,12 +1,7 @@
 <resources>
     <string name="app_name">inumbr</string>
-    <string name="h_1">1</string>
-    <string name="h_2">2</string>
-    <string name="h_3">3</string>
-    <string name="h_4">4</string>
-    <string name="h_5">5</string>
-    <string name="h_6">6</string>
     <string name="comb_guide">Enter numbers to create combinations with</string>
     <string name="comb_length_guide">Enter the max length for each combination</string>
     <string name="generate_comb">Generate Combinations</string>
+    <string name="clear">Clear</string>
 </resources>
