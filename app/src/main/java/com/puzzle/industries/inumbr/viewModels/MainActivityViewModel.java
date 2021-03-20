@@ -12,9 +12,9 @@ import java.util.List;
 public class MainActivityViewModel extends ViewModel {
 
     private final CombinationsRepository COMBINATIONS_REPO = CombinationsRepository.getInstance();
-    private MutableLiveData<List<String>> combinations;
+    private MutableLiveData<List<int[]>> combinations;
 
-    public LiveData<List<String>> getCombinations() {
+    public LiveData<List<int[]>> getCombinations() {
         if (combinations == null) combinations = new MutableLiveData<>();
 
         return combinations;
@@ -24,18 +24,16 @@ public class MainActivityViewModel extends ViewModel {
         List<int[]> possibleCombinations = COMBINATIONS_REPO.generateCombinations(selectedNumbers.size(),
                 maxLength);
 
-        List<String> generatedCombinations = new ArrayList<>();
-
-        StringBuilder sb = new StringBuilder();
+        List<int[]> generatedCombinations = new ArrayList<>();
 
         for (int[] comb : possibleCombinations){
+            int[] selectedNumbersComb = new int[comb.length];
+
             for (int i = 0; i < comb.length; i++){
-                if (i != 0) sb.append(' ');
-                sb.append(selectedNumbers.get(comb[i]));
+                selectedNumbersComb[i] = selectedNumbers.get(comb[i]);
             }
 
-            generatedCombinations.add(sb.toString());
-            sb = new StringBuilder();
+            generatedCombinations.add(selectedNumbersComb);
         }
 
         combinations.postValue(generatedCombinations);
