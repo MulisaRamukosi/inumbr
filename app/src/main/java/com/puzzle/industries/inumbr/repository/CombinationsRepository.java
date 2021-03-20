@@ -1,6 +1,6 @@
 package com.puzzle.industries.inumbr.repository;
 
-import com.puzzle.industries.inumbr.model.CombinationsModel;
+import com.puzzle.industries.inumbr.dataModels.CombinationsModel;
 
 import java.util.List;
 
