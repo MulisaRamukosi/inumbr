@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mBinding.ibtnAddNumber.setOnClickListener(v -> tableViewController.addNumberInput());
 
         mBinding.btnClear.setOnClickListener(v -> {
+            mBinding.edtCombLength.setText("");
             mBinding.llCombHolder.removeAllViews();
             tableViewController.removeAllViews();
         });
