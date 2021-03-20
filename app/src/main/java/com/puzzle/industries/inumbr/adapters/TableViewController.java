@@ -185,6 +185,10 @@ public class TableViewController {
                 });
             }
         }
+        else if (NUMBER_INPUTS.size() == 1){
+            EditText edtComb = NUMBER_INPUTS.get(0);
+            edtComb.setHint(String.valueOf(1));
+        }
     }
 
     private void giveEditTextFocus(int pos){
