@@ -7,6 +7,7 @@ import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -153,6 +154,8 @@ public class TableViewController {
         editText.setHint(String.valueOf(NUMBER_INPUTS.size() + 1));
         editText.setTextSize(res.getDimension(R.dimen.txt_size_medium));
 
+        setDeleteKeyListenerAsEnabled(true, editText);
+
         int editTextSize = (int) res.getDimension(R.dimen.bg_circle_size);
         int margins = (int) res.getDimension(R.dimen.mp_4dp);
 
@@ -222,8 +225,19 @@ public class TableViewController {
                 /*
                  * The moment the editText is empty, the delete key listener is enabled
                  * in case the users presses delete again
+                 * we first make a delay
                  * */
-                setDeleteKeyListenerAsEnabled(s.toString().trim().isEmpty(), editText);
+                boolean isNowEmpty = s.toString().trim().isEmpty();
+
+                if (isNowEmpty){
+                    new Handler().postDelayed(() ->
+                            setDeleteKeyListenerAsEnabled(s.toString().trim().isEmpty(), editText),
+                            100);
+                }
+                else{
+                    setDeleteKeyListenerAsEnabled(false, editText);
+                }
+
             }
         });
     }
