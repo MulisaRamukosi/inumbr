@@ -3,7 +3,7 @@ package com.puzzle.industries.inumbr.dataModels;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CombinationsModel {
+public class CombinationsUtil {
 
     private void helper(List<int[]> combinations, int[] data, int start, int end, int index) {
         if (index == data.length) {
