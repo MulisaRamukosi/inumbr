@@ -19,11 +19,24 @@
             android:orientation="vertical"
             android:padding="@dimen/mp_8dp">
 
-            <TextView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/comb_guide"
-                android:textSize="18sp" />
+                app:cardBackgroundColor="@color/color_primary_light">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/mp_8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/betway_cred"
+                        android:textSize="16sp"
+                        android:textAllCaps="true"
+                        style="@style/textview.Title.Bold"/>
 
             <TableLayout
                 android:id="@+id/tl_number_inputs"
