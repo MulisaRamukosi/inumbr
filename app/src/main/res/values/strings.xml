@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">inumbr</string>
-    <string name="comb_guide">Enter numbers to create combinations with</string>
+    <string name="comb_guide">Numbers to create combinations with</string>
     <string name="comb_length_guide">Enter the max length for each combination</string>
     <string name="generate_comb">Generate Combinations</string>
     <string name="clear">Clear</string>
+    <string name="select_numbers">Select Numbers</string>
+    <string name="select_numbers_comb">Select numbers to generate combinations with</string>
+    <string name="betway_cred">Betway Credentials</string>
+    <string name="betway_cred_guide">Set betway login credentials</string>
+    <string name="set_credentials">Set Credentials</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="clear_selection">Clear Selection</string>
+    <string name="select_numbers_delete">Reselect number to delete it</string>
+    <string name="comb_length">Combination Length</string>
+    <string name="seven">7</string>
+    <string name="bet_numbers">Bet Numbers</string>
 </resources>
