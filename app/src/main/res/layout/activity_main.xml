@@ -60,50 +60,107 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mp_16dp"
-                android:inputType="number" />
+                app:cardBackgroundColor="@color/color_primary_light">
 
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/mp_8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comb_guide"
+                        android:textSize="16sp"
+                        android:textAllCaps="true"
+                        style="@style/textview.Title.Bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/select_numbers_comb"
+                        style="@style/TextAppearance.Regular"/>
+
+                    <com.puzzle.industries.inumbr.components.AutoFitRecyclerView
+                        android:id="@+id/rv_selected_nums"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/mp_16dp"
+                        android:columnWidth="@dimen/ball_width"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_select_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/select_numbers"
+                        android:layout_marginTop="@dimen/mp_16dp"
+                        style="@style/FilledButtonStyle"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_clear_selection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear_selection"
+                        android:layout_marginTop="@dimen/mp_8dp"
+                        android:visibility="gone"
+                        style="@style/FilledButtonStyle"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mp_16dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                app:cardBackgroundColor="@color/color_primary_light">
 
-                <Button
-                    android:id="@+id/btn_clear"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/clear"
-                    android:textAllCaps="true" />
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/mp_8dp">
 
-                <Space
-                    android:layout_width="@dimen/mp_16dp"
-                    android:layout_height="1dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comb_length"
+                        android:textSize="16sp"
+                        android:textAllCaps="true"
+                        style="@style/textview.Title.Bold"/>
 
-                <Button
-                    android:id="@+id/btn_comb_gen"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/generate_comb"
-                    android:textAllCaps="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comb_length_guide"
+                        style="@style/TextAppearance.Regular"/>
 
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/edt_comb_length"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:hint="@string/seven"
+                        android:textAppearance="@style/TextAppearance.Bold"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:textSize="32sp"
+                        android:maxLength="1"/>
 
-            <TextView
-                android:id="@+id/tv_combinations"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Total Combinations"
-                android:layout_marginTop="@dimen/mp_8dp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_comb_holder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/mp_8dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_gen_comb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/mp_16dp"
+                        android:text="@string/generate_comb"
+                        style="@style/FilledButtonStyle"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
