@@ -38,32 +38,25 @@
                         android:textAllCaps="true"
                         style="@style/textview.Title.Bold"/>
 
-            <TableLayout
-                android:id="@+id/tl_number_inputs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/mp_16dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/betway_cred_guide"
+                        style="@style/TextAppearance.Regular"/>
 
-            <ImageButton
-                android:id="@+id/ibtn_add_number"
-                android:layout_width="@dimen/bg_circle_size"
-                android:layout_height="@dimen/bg_circle_size"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="@dimen/mp_4dp"
-                android:background="@drawable/bg_circle"
-                android:src="@drawable/ic_round_add_24" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_set_credentials"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/set_credentials"
+                        android:layout_marginTop="@dimen/mp_16dp"
+                        style="@style/FilledButtonStyle"/>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/mp_16dp"
-                android:text="@string/comb_length_guide"
-                android:textSize="18sp" />
+                </LinearLayout>
 
-            <EditText
-                android:id="@+id/edt_comb_length"
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mp_16dp"
