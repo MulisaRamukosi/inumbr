@@ -38,7 +38,14 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
 
-        configLinearProgress(mBinding.lpiCalculation);
+        mFragmentManager = getSupportFragmentManager();
+
+        //generate selection balls
+        for (int i = 1; i <= 49; i++){
+            SELECTION_BALLS.add(new Ball(i));
+        }
+
+        int margins = (int) getResources().getDimension(R.dimen.mp_4dp);
 
         double ballWidth = getResources().getDimension(R.dimen.col_width);
         tableViewController = new TableViewController(mBinding.tlNumberInputs, ballWidth);
