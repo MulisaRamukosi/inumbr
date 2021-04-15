@@ -53,7 +53,7 @@ javascript:(() => {
                 if(ballSelectionOptions !== undefined && ballSelectionOptions !== null && ballSelectionOptions.length > 0){
                     clearInterval(SixBallSelectorCheck);
 
-                    const sixBallOption = ballSelectionOptions[5];
+                    const sixBallOption = ballSelectionOptions[3];
                     sixBallOption.click();
 
                     startNumberSelection();
