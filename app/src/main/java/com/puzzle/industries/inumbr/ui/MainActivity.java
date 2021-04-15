@@ -23,13 +23,14 @@ import java.util.List;
 
 public class MainActivity extends FragmentActivity implements BallSelectionListener {
 
+    private FragmentManager mFragmentManager;
     private ActivityMainBinding mBinding;
-    //private MainActivityViewModel mViewModel;
-    private TableViewController tableViewController;
+    private InputBottomSheet mInputBottomSheet;
 
-    private final List<int[]> combinationsList = new ArrayList<>();
+    private final List<Ball> SELECTED_BALLS = new ArrayList<>();
+    private final List<Ball> SELECTION_BALLS = new ArrayList<>();
 
-    private CombinationsAdapter combinationsAdapter;
+    private final BallsAdapter SELECTED_BALLS_ADAPTER = new BallsAdapter(SELECTED_BALLS, null);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
