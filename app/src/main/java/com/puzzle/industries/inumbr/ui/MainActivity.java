@@ -106,36 +106,19 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
         }
     }
 
+    @Override
+    public void ballSelected(Ball ball) {
+        int ballPosition = SELECTED_BALLS.indexOf(ball);
 
-
-    private void generateCombinations(List<Integer> selectedNumbers, int maxLength) {
-        setScreenAsEnabled(false);
-        new GenerateComboTask(selectedNumbers, selectedNumbers.size(), maxLength, this::populateListView).execute();
-        //mViewModel.generateCombinations(selectedNumbers, maxLength);
-    }
-
-    private void setScreenAsEnabled(boolean enabled) {
-        if (enabled) {
-            mBinding.lpiCalculation.hide();
-            /*getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);*/
-        } else {
-            mBinding.lpiCalculation.show();
-            /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);*/
+        if (ballPosition == -1){
+            SELECTED_BALLS.add(ball);
+            SELECTED_BALLS_ADAPTER.notifyItemInserted(SELECTED_BALLS.size() - 1);
         }
-    }
+        else{
+            SELECTED_BALLS.remove(ballPosition);
+            SELECTED_BALLS_ADAPTER.notifyItemRemoved(ballPosition);
+        }
 
-    public void configLinearProgress(LinearProgressIndicator progressIndicator) {
-        progressIndicator.setIndicatorColor(getColorById(R.color.brown),
-                getColorById(R.color.light_brown), getColorById(R.color.black));
-
-        progressIndicator.setIndeterminateAnimationType(LinearProgressIndicator
-                .INDETERMINATE_ANIMATION_TYPE_CONTIGUOUS);
-
-        progressIndicator.hide();
-    }
-
-    private int getColorById(int id) {
-        return ContextCompat.getColor(this, id);
+        mBinding.btnClearSelection.setVisibility(SELECTED_BALLS.isEmpty() ? View.GONE : View.VISIBLE);
     }
 }
