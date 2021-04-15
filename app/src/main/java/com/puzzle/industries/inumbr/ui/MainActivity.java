@@ -71,31 +71,22 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
             v.setVisibility(View.GONE);
         });
 
-        mBinding.btnCombGen.setOnClickListener(v -> {
-            List<Integer> selectedNumbers = tableViewController.getSelectedNumbers();
-            Collections.sort(selectedNumbers);
-            String sMaxLengthForComb = mBinding.edtCombLength.getText().toString();
+        mBinding.btnGenComb.setOnClickListener(v -> {
+            String sNumber = mBinding.edtCombLength.getText().toString().trim();
 
-            if (selectedNumbers.isEmpty()) {
-                Toast.makeText(this, "Input numbers", Toast.LENGTH_SHORT).show();
-            } else if (sMaxLengthForComb.isEmpty()) {
-                mBinding.edtCombLength.setError("Enter length");
-            } else {
-                int maxLength = Integer.parseInt(sMaxLengthForComb);
-                if (maxLength > selectedNumbers.size()) {
+            if (sNumber.isEmpty()){
+                Toast.makeText(v.getContext(), "Enter combination length", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                int combLength = Integer.parseInt(sNumber);
+                int numOfSelectedNums = SELECTED_BALLS.size();
+
+                if (combLength > numOfSelectedNums){
                     Toast.makeText(this, "combination length can't be higher than the provided numbers", Toast.LENGTH_LONG).show();
-                } else {
-                    boolean containsDuplicates = false;
-                    for (int i = 1; i < selectedNumbers.size(); i++) {
-                        if (selectedNumbers.get(i).equals(selectedNumbers.get(i - 1))) {
-                            containsDuplicates = true;
-                            Toast.makeText(this, "Error, there's a duplicate of " + selectedNumbers.get(i), Toast.LENGTH_SHORT).show();
-                            break;
-                        }
-                    }
-                    if (!containsDuplicates) {
-                        generateCombinations(selectedNumbers, maxLength);
-                    }
+                }
+                else{
+                    Toast.makeText(this, "generating combinations", Toast.LENGTH_SHORT).show();
+                    generateCombinations(combLength);
                 }
             }
         });
