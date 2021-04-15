@@ -55,11 +55,10 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
             credentialsBottomSheet.show(mFragmentManager, credentialsBottomSheet.getTag());
         });
 
-        mBinding.rvCombHolder.setAdapter(combinationsAdapter);
-        mBinding.rvCombHolder.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
+        mBinding.btnSelectNum.setOnClickListener(v -> {
+            if (mInputBottomSheet == null){
+                mInputBottomSheet = new InputBottomSheet(SELECTION_BALLS);
+                mInputBottomSheet.setBallSelectionListener(this);
             }
             InputBottomSheet inputBottomSheet = new InputBottomSheet(SELECTION_BALLS);
             mInputBottomSheet.show(mFragmentManager, inputBottomSheet.getTag());
