@@ -1,27 +1,27 @@
 package com.puzzle.industries.inumbr.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
-import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.puzzle.industries.inumbr.R;
-import com.puzzle.industries.inumbr.adapters.CombinationsAdapter;
-import com.puzzle.industries.inumbr.adapters.TableViewController;
+import com.puzzle.industries.inumbr.adapters.BallsAdapter;
+import com.puzzle.industries.inumbr.bottomSheet.CredentialsBottomSheet;
+import com.puzzle.industries.inumbr.bottomSheet.InputBottomSheet;
+import com.puzzle.industries.inumbr.components.GridItemDecoration;
+import com.puzzle.industries.inumbr.dataModels.Ball;
 import com.puzzle.industries.inumbr.databinding.ActivityMainBinding;
+import com.puzzle.industries.inumbr.interfaces.BallSelectionListener;
 import com.puzzle.industries.inumbr.tasks.GenerateComboTask;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity implements BallSelectionListener {
 
     private ActivityMainBinding mBinding;
     //private MainActivityViewModel mViewModel;
