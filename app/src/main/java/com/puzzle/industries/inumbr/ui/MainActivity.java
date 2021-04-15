@@ -61,6 +61,8 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
+            InputBottomSheet inputBottomSheet = new InputBottomSheet(SELECTION_BALLS);
+            mInputBottomSheet.show(mFragmentManager, inputBottomSheet.getTag());
         });
 
         mBinding.ibtnAddNumber.setOnClickListener(v -> tableViewController.addNumberInput());
