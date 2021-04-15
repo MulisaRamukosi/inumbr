@@ -64,12 +64,11 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
             mInputBottomSheet.show(mFragmentManager, inputBottomSheet.getTag());
         });
 
-        mBinding.ibtnAddNumber.setOnClickListener(v -> tableViewController.addNumberInput());
-
-        mBinding.btnClear.setOnClickListener(v -> {
-            mBinding.edtCombLength.setText("");
-            tableViewController.removeAllViews();
-            mBinding.rvCombHolder.removeAllViews();
+        mBinding.btnClearSelection.setOnClickListener(v -> {
+            SELECTED_BALLS.clear();
+            for (Ball ball : SELECTION_BALLS) ball.setSelected(false);
+            SELECTED_BALLS_ADAPTER.notifyDataSetChanged();
+            v.setVisibility(View.GONE);
         });
 
         mBinding.btnCombGen.setOnClickListener(v -> {
