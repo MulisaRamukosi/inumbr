@@ -50,8 +50,10 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
         mBinding.rvSelectedNums.addItemDecoration(new GridItemDecoration(margins));
         mBinding.rvSelectedNums.setAdapter(SELECTED_BALLS_ADAPTER);
 
-        //mViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
-        //mViewModel.getCombinations().observe(this, this::displayTheCombinations);
+        mBinding.btnSetCredentials.setOnClickListener(v -> {
+            CredentialsBottomSheet credentialsBottomSheet = new CredentialsBottomSheet();
+            credentialsBottomSheet.show(mFragmentManager, credentialsBottomSheet.getTag());
+        });
 
         mBinding.rvCombHolder.setAdapter(combinationsAdapter);
         mBinding.rvCombHolder.addOnScrollListener(new RecyclerView.OnScrollListener() {
