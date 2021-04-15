@@ -92,10 +92,10 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
         });
     }
 
-    private void populateListView(List<int[]> listOfCombinations) {
-        mBinding.tvCombinations.setText(String.format(Locale.US, "Total Combinations (%d)", listOfCombinations.size()));
-        setScreenAsEnabled(true);
-        combinationsList.clear();
+    private void displayResults(List<int[]> listOfCombinations) {
+        ResultsActivity.sResults = listOfCombinations;
+        startActivity(new Intent(MainActivity.this, ResultsActivity.class));
+    }
 
         combinationsList.addAll(listOfCombinations);
         if (combinationsAdapter == null) {
