@@ -97,13 +97,12 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
         startActivity(new Intent(MainActivity.this, ResultsActivity.class));
     }
 
-        combinationsList.addAll(listOfCombinations);
-        if (combinationsAdapter == null) {
-            combinationsAdapter = new CombinationsAdapter(combinationsList, getResources().getDimension(R.dimen.col_width));
-            mBinding.rvCombHolder.setAdapter(combinationsAdapter);
-        } else {
-            combinationsAdapter.notifyDataSetChanged();
+    private void generateCombinations(int maxLength) {
+        List<Integer> selectedBalls = new ArrayList<>();
+        for (Ball b : SELECTED_BALLS){
+            selectedBalls.add(b.getNum());
         }
+        new GenerateComboTask(selectedBalls, selectedBalls.size(), maxLength, this::displayResults).execute();
     }
 
     @Override
