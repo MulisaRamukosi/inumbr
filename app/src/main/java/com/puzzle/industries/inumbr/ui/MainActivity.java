@@ -47,8 +47,8 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
 
         int margins = (int) getResources().getDimension(R.dimen.mp_4dp);
 
-        double ballWidth = getResources().getDimension(R.dimen.col_width);
-        tableViewController = new TableViewController(mBinding.tlNumberInputs, ballWidth);
+        mBinding.rvSelectedNums.addItemDecoration(new GridItemDecoration(margins));
+        mBinding.rvSelectedNums.setAdapter(SELECTED_BALLS_ADAPTER);
 
         //mViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         //mViewModel.getCombinations().observe(this, this::displayTheCombinations);
