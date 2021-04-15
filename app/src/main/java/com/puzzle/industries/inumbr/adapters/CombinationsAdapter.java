@@ -6,18 +6,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.puzzle.industries.inumbr.dataModels.Ball;
 import com.puzzle.industries.inumbr.databinding.ItemCombinationsBinding;
 
 import java.util.List;
 
 public class CombinationsAdapter extends RecyclerView.Adapter<CombinationsAdapter.ViewHolder> {
 
-    private final List<int[]> combinationsList;
-    private final double ballWidth;
+    private final List<List<Ball>> combinationsList;
 
-    public CombinationsAdapter(List<int[]> combinationsList, double ballWidth) {
+    public CombinationsAdapter(List<List<Ball>> combinationsList) {
         this.combinationsList = combinationsList;
-        this.ballWidth = ballWidth;
     }
 
     @NonNull
@@ -29,9 +28,9 @@ public class CombinationsAdapter extends RecyclerView.Adapter<CombinationsAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        int[] combinations = combinationsList.get(position);
-        TableViewController controller = new TableViewController(holder.binding.tlResultItem, ballWidth);
-        controller.addAllNumbers(combinations);
+        List<Ball> balls = combinationsList.get(position);
+        BallsAdapter adapter = new BallsAdapter(balls, null);
+        holder.binding.rvResultItem.setAdapter(adapter);
     }
 
     @Override
