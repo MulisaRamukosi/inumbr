@@ -56,110 +56,22 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lucky_numbers"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/mp_16dp"
+                style="@style/textview.Title.Bold"/>
+
+            <com.puzzle.industries.inumbr.components.AutoFitRecyclerView
+                android:id="@+id/rv_lucky_number_games"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mp_16dp"
-                app:cardBackgroundColor="@color/color_primary_light">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/mp_8dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/comb_guide"
-                        android:textSize="16sp"
-                        android:textAllCaps="true"
-                        style="@style/textview.Title.Bold"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/select_numbers_comb"
-                        style="@style/TextAppearance.Regular"/>
-
-                    <com.puzzle.industries.inumbr.components.AutoFitRecyclerView
-                        android:id="@+id/rv_selected_nums"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/mp_16dp"
-                        android:columnWidth="@dimen/ball_width"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_select_num"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/select_numbers"
-                        android:layout_marginTop="@dimen/mp_16dp"
-                        style="@style/FilledButtonStyle"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_clear_selection"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/clear_selection"
-                        android:layout_marginTop="@dimen/mp_8dp"
-                        android:visibility="gone"
-                        style="@style/FilledButtonStyle"/>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/mp_16dp"
-                app:cardBackgroundColor="@color/color_primary_light">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/mp_8dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/comb_length"
-                        android:textSize="16sp"
-                        android:textAllCaps="true"
-                        style="@style/textview.Title.Bold"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/comb_length_guide"
-                        style="@style/TextAppearance.Regular"/>
-
-                    <EditText
-                        android:id="@+id/edt_comb_length"
-                        android:layout_width="45dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:hint="@string/seven"
-                        android:textAppearance="@style/TextAppearance.Bold"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:textSize="32sp"
-                        android:maxLength="1"/>
+                android:columnWidth="@dimen/ln_item_width"/>
 
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_gen_comb"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/mp_16dp"
-                        android:text="@string/generate_comb"
-                        style="@style/FilledButtonStyle"/>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
