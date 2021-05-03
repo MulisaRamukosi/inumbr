@@ -23,4 +23,7 @@ public class CredentialsRepository {
         return PREF_MODEL.getPassword();
     }
 
+    public boolean isCredentialsSet(){
+        return !PREF_MODEL.getMobileNumber().isEmpty() && !PREF_MODEL.getPassword().isEmpty();
+    }
 }
