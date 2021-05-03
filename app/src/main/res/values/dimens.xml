@@ -9,4 +9,6 @@
     <dimen name="button_padding_left_right">12dp</dimen>
     <dimen name="button_corner_radius">24dp</dimen>
     <dimen name="text_input_layout_corner_radius">2dp</dimen>
+    <dimen name="ln_item_width">250dp</dimen>
+    <dimen name="mp_32dp">32dp</dimen>
 </resources>
