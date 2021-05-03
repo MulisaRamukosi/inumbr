@@ -8,4 +8,6 @@ public interface Constants {
 
     String BETWAY_URL = "https://www.betway.co.za/";
     String BETWAY_LUCKY_NUMBERS_URL = "https://www.betway.co.za/luckynumbers";
+
+    String KEY_LN_GAME = "LN_GAME";
 }
