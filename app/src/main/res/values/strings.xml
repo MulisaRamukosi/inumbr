@@ -16,4 +16,6 @@
     <string name="comb_length">Combination Length</string>
     <string name="seven">7</string>
     <string name="bet_numbers">Bet Numbers</string>
+    <string name="lucky_numbers">Lucky Numbers</string>
+    <string name="bet_now">Bet Now</string>
 </resources>
