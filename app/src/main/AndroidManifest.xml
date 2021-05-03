@@ -27,9 +27,11 @@
         <activity android:name=".ui.ResultsActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".ui.PlaceBetsActivity"
+        <activity android:name=".ui.PlaceBetActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.GameViewActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
