@@ -16,15 +16,15 @@ public class PreferenceModel {
 
 
     public void setCredentials(String userMobileNumber, String userPass){
-        mPref.edit().putString(Constants.MOBILE_NUM_KEY, userMobileNumber)
-                .putString(Constants.PASSWORD_KEY, userPass).apply();
+        mPref.edit().putString(Constants.KEY_MOBILE_NUM, userMobileNumber)
+                .putString(Constants.KEY_PASSWORD, userPass).apply();
     }
 
     public String getMobileNumber() {
-        return mPref.getString(Constants.MOBILE_NUM_KEY, "");
+        return mPref.getString(Constants.KEY_MOBILE_NUM, "");
     }
 
     public String getPassword() {
-        return mPref.getString(Constants.PASSWORD_KEY, "");
+        return mPref.getString(Constants.KEY_PASSWORD, "");
     }
 }
