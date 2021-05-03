@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.puzzle.industries.inumbr.adapters.CombinationsAdapter;
 import com.puzzle.industries.inumbr.dataModels.Ball;
+import com.puzzle.industries.inumbr.dataModels.LuckyNumberGame;
 import com.puzzle.industries.inumbr.databinding.ActivityResultsBinding;
+import com.puzzle.industries.inumbr.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.Locale;
 public class ResultsActivity extends FragmentActivity {
 
     private ActivityResultsBinding resultsBinding;
+    private LuckyNumberGame mLuckyNumberGame;
 
     public static List<int[]> sResults;
     private final int BET_NUMS_RANGE = 200;
@@ -29,6 +32,8 @@ public class ResultsActivity extends FragmentActivity {
 
         resultsBinding = ActivityResultsBinding.inflate(getLayoutInflater());
         setContentView(resultsBinding.getRoot());
+
+        mLuckyNumberGame = getIntent().getExtras().getParcelable(Constants.KEY_LN_GAME);
 
         resultsBinding.tvCombinations.setText(String.format(Locale.UK, "Total Combinations (%d)", sResults.size()));
 
@@ -70,8 +75,10 @@ public class ResultsActivity extends FragmentActivity {
             startIndex += BET_NUMS_RANGE;
 
             if (!subResults.isEmpty()){
-                PlaceBetsActivity.sResults = subResults;
-                startActivity(new Intent(ResultsActivity.this, PlaceBetsActivity.class));
+                PlaceBetActivity.sResults = subResults;
+                Intent i = new Intent(ResultsActivity.this, PlaceBetActivity.class);
+                i.putExtra(Constants.KEY_LN_GAME, mLuckyNumberGame);
+                startActivity(i);
             }
         }
 
