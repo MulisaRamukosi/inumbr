@@ -1,27 +1,22 @@
 package com.puzzle.industries.inumbr.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.puzzle.industries.inumbr.R;
-import com.puzzle.industries.inumbr.adapters.BallsAdapter;
+import com.puzzle.industries.inumbr.adapters.LuckyNumberAdapter;
 import com.puzzle.industries.inumbr.bottomSheet.CredentialsBottomSheet;
-import com.puzzle.industries.inumbr.bottomSheet.InputBottomSheet;
 import com.puzzle.industries.inumbr.components.GridItemDecoration;
-import com.puzzle.industries.inumbr.dataModels.Ball;
+import com.puzzle.industries.inumbr.dataModels.LuckyNumberGame;
 import com.puzzle.industries.inumbr.databinding.ActivityMainBinding;
-import com.puzzle.industries.inumbr.interfaces.BallSelectionListener;
-import com.puzzle.industries.inumbr.tasks.GenerateComboTask;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends FragmentActivity implements BallSelectionListener {
+public class MainActivity extends FragmentActivity  {
 
     private FragmentManager mFragmentManager;
     private ActivityMainBinding mBinding;
@@ -55,41 +50,15 @@ public class MainActivity extends FragmentActivity implements BallSelectionListe
             credentialsBottomSheet.show(mFragmentManager, credentialsBottomSheet.getTag());
         });
 
-        mBinding.btnSelectNum.setOnClickListener(v -> {
-            if (mInputBottomSheet == null){
-                mInputBottomSheet = new InputBottomSheet(SELECTION_BALLS);
-                mInputBottomSheet.setBallSelectionListener(this);
-            }
-            InputBottomSheet inputBottomSheet = new InputBottomSheet(SELECTION_BALLS);
-            mInputBottomSheet.show(mFragmentManager, inputBottomSheet.getTag());
-        });
+        int margins = (int) getResources().getDimension(R.dimen.mp_4dp);
 
-        mBinding.btnClearSelection.setOnClickListener(v -> {
-            SELECTED_BALLS.clear();
-            for (Ball ball : SELECTION_BALLS) ball.setSelected(false);
-            SELECTED_BALLS_ADAPTER.notifyDataSetChanged();
-            v.setVisibility(View.GONE);
-        });
+        LuckyNumberGame russianGosLotto749 = new LuckyNumberGame("GOSLOTO RUSSIA 7/49", 49, 6, R.drawable.ic_russia, "RussiaGosLotto749BetPlacer.js");
+        LuckyNumberGame southAfricaDailyLotto536 = new LuckyNumberGame("SOUTH AFRICA DAILY LOTTO 5/36", 36, 4, R.drawable.ic_south_africa, "SouthAfricaDailyLotto536BetPlacer.js");
 
-        mBinding.btnGenComb.setOnClickListener(v -> {
-            String sNumber = mBinding.edtCombLength.getText().toString().trim();
-
-            if (sNumber.isEmpty()){
-                Toast.makeText(v.getContext(), "Enter combination length", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                int combLength = Integer.parseInt(sNumber);
-                int numOfSelectedNums = SELECTED_BALLS.size();
-
-                if (combLength > numOfSelectedNums){
-                    Toast.makeText(this, "combination length can't be higher than the provided numbers", Toast.LENGTH_LONG).show();
-                }
-                else{
-                    Toast.makeText(this, "generating combinations", Toast.LENGTH_SHORT).show();
-                    generateCombinations(combLength);
-                }
-            }
-        });
+        List<LuckyNumberGame> luckyNumberGames = new ArrayList<>(Arrays.asList(russianGosLotto749, southAfricaDailyLotto536));
+        LuckyNumberAdapter luckyNumberAdapter = new LuckyNumberAdapter(luckyNumberGames);
+        mBinding.rvLuckyNumberGames.setAdapter(luckyNumberAdapter);
+        mBinding.rvLuckyNumberGames.addItemDecoration(new GridItemDecoration(margins));
     }
 
     private void displayResults(List<int[]> listOfCombinations) {
